@@ -1,1 +1,1 @@
-include ':app', ':lootlib'
+include ':app', ':loot'

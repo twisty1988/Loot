@@ -4,4 +4,9 @@
     <color name="white">#ffffff</color>
     <color name="blackText">#333333</color>
     <color name="actionBarColor">#ee222222</color>
+    <color name="redCircle">#ee0000</color>
+
+
+    <color name="textDisabled">#aae8e9e8</color>
+    <color name="textEnabled">#ecc9b911</color>
 </resources>

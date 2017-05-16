@@ -1,5 +1,7 @@
 package com.twisty.lootlib;
 
+import java.util.ArrayList;
+
 /**
  * Project : Loot<br>
  * Created by twisty on 2017/5/12.<br>
@@ -9,6 +11,7 @@ public class Album {
     private String albumName;
     private String latestImagePath;
     private int imageCount;
+    private ArrayList<String> imagePaths = new ArrayList<>();
 
     public Album() {
     }
@@ -41,12 +44,21 @@ public class Album {
         this.imageCount = imageCount;
     }
 
+    public ArrayList<String> getImagePaths() {
+        return imagePaths;
+    }
+
+    public void setImagePaths(ArrayList<String> imagePaths) {
+        this.imagePaths = imagePaths;
+    }
+
     @Override
     public String toString() {
         return "Album{" +
                 "albumName='" + albumName + '\'' +
                 ", latestImagePath='" + latestImagePath + '\'' +
                 ", imageCount=" + imageCount +
+                ", imagePaths=" + imagePaths +
                 '}';
     }
 

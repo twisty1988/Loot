@@ -4,7 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Loot.iml" filepath="$PROJECT_DIR$/Loot.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lootlib/lootlib.iml" filepath="$PROJECT_DIR$/lootlib/lootlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loot/loot.iml" filepath="$PROJECT_DIR$/loot/loot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loot/lootlib.iml" filepath="$PROJECT_DIR$/loot/lootlib.iml" />
     </modules>
   </component>
 </project>

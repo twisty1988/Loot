@@ -31,4 +31,6 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:' + supportVersion
     compile 'com.github.bumptech.glide:glide:3.8.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.isseiaoki:simplecropview:1.1.4'
+    compile 'com.github.chrisbanes:PhotoView:2.0.0'
 }

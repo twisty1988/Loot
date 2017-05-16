@@ -1,11 +1,11 @@
 package com.twisty.loot;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
-import com.twisty.lootlib.LootMainActivity;
+import com.twisty.lootlib.Loot;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +16,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onclick(View view) {
-        startActivity(new Intent(this,LootMainActivity.class));
+        Loot.getInstance()
+                .setSingle(false)
+                .setHasCamera(true)
+                .setMaxCount(9)
+                .start(this, data -> Log.e("X", data.toString()));
     }
 }
