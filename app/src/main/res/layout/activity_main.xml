@@ -1,20 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
     tools:context="com.twisty.loot.MainActivity">
 
-    <TextView
-        android:onClick="onclick"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+    <RadioGroup
+        android:id="@+id/rg1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-</android.support.constraint.ConstraintLayout>
+        <RadioButton
+            android:id="@+id/rb11"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:checked="true"
+            android:text="单选"/>
+
+        <RadioButton
+            android:id="@+id/rb12"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="多选"/>
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rg2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb21"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:checked="true"
+            android:text="有拍照"/>
+
+        <RadioButton
+            android:id="@+id/rb22"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="无拍照"/>
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rg3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb31"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:checked="true"
+            android:text="有裁剪"/>
+
+        <RadioButton
+            android:id="@+id/rb32"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="无裁剪"/>
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/maxCountEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/edit_text"
+        android:enabled="false"
+        android:hint="最大选择数量,默认9"
+        android:inputType="number"
+        android:text="9"
+        android:textSize="14sp"/>
+
+    <Button
+        android:id="@+id/go"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="开始"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

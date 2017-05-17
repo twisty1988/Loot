@@ -16,6 +16,7 @@ public class Loot {
     private int maxCount = 9;
     private boolean isSingle;
     private boolean hasCamera;
+    private boolean hasCrop;
     int countPerRow = 3;
     private OnLootedCallback onLootedCallback;
 
@@ -32,13 +33,8 @@ public class Loot {
 
     public void start(Activity activity, OnLootedCallback onLootedCallback) {
         this.onLootedCallback = onLootedCallback;
-        if (isSingle) {
-            // FIXME: 2017/5/16 跳转单选
-        } else {
-            activity.startActivity(new Intent(activity, LootMainActivity.class));
-        }
-
-
+        Intent intent = new Intent(activity, LootMainActivity.class);
+        activity.startActivity(intent);
     }
 
     public int getMaxCount() {
@@ -68,6 +64,15 @@ public class Loot {
         return loot;
     }
 
+    public boolean isHasCrop() {
+        return hasCrop;
+    }
+
+    public Loot setHasCrop(boolean hasCrop) {
+        this.hasCrop = hasCrop;
+        return loot;
+    }
+
     OnLootedCallback getOnLootedCallback() {
         return onLootedCallback;
     }
@@ -75,4 +80,5 @@ public class Loot {
     public interface OnLootedCallback {
         void onLooted(List<String> data);
     }
+
 }

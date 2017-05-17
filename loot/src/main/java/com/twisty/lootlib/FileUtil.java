@@ -13,10 +13,11 @@ import java.io.IOException;
 public class FileUtil {
     public static File createTmpFile() throws IOException {
         File path = Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_DCIM + "/Camera");
+                Environment.DIRECTORY_DCIM);
         File file = new File(path, "/LOOT_" + System.currentTimeMillis() + ".jpg");
         if (!path.exists()) path.mkdirs();
         if (!file.exists()) file.createNewFile();
         return file;
     }
+
 }

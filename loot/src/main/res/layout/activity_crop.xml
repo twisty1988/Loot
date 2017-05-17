@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -47,28 +47,46 @@
             android:textSize="14sp"/>
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black"
+        >
+
+        <android.support.v4.widget.Space
+            android:id="@+id/centerPoint"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"/>
+
+        <ImageView
+            android:id="@+id/leftRotation"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/centerPoint"
+            android:src="@drawable/rotation_left"/>
+
+        <ImageView
+            android:id="@+id/rightRotation"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/centerPoint"
+            android:src="@drawable/rotation_right"/>
+
+    </RelativeLayout>
 
     <com.isseiaoki.simplecropview.CropImageView
         android:id="@+id/cropImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@id/bottomBar"
         android:layout_below="@id/actionBar"
-        android:layout_weight="1"
-        android:paddingBottom="16dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="16dp"
-        custom:scv_animation_duration="200"
-        custom:scv_animation_enabled="true"
-        custom:scv_crop_enabled="true"
-        custom:scv_crop_mode="fit_image"
-        custom:scv_frame_stroke_weight="1dp"
-        custom:scv_guide_show_mode="show_always"
-        custom:scv_guide_stroke_weight="1dp"
-        custom:scv_handle_shadow_enabled="true"
-        custom:scv_handle_show_mode="show_always"
-        custom:scv_handle_size="14dp"
-        custom:scv_initial_frame_scale="1.0"
-        custom:scv_min_frame_size="50dp"
-        custom:scv_touch_padding="8dp"/>
+        android:padding="16dp"
+        app:scv_background_color="@color/black"
+        app:scv_crop_mode="free"
+        />
 </RelativeLayout>

@@ -28,6 +28,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     private ActionCallback<String> onImageItemClickCallback;
     private ArrayList<String> selectedImages = new ArrayList<>();
     private OnCheckListener onCheckListener;
+    Loot loot;
+
 
     public void setOnCheckListener(OnCheckListener onCheckListener) {
         this.onCheckListener = onCheckListener;
@@ -45,6 +47,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
 
     ImageAdapter(List<String> data) {
         this.data = data;
+        loot = Loot.getInstance();
     }
 
 
@@ -61,6 +64,9 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             layoutParams.width = (int) itemWidth - 2;
             layoutParams.height = (int) itemWidth - 2;
             view.setLayoutParams(layoutParams);
+            if (loot.isSingle()) {
+                view.findViewById(R.id.checkbox).setVisibility(View.GONE);
+            }
             return new ImageViewHolder(view);
         }
     }
@@ -78,7 +84,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             } else {
                 selectedImages.remove(imagePath);
             }
-            int maxCount = Loot.getInstance().getMaxCount();
+            int maxCount = loot.getMaxCount();
             if (selectedImages.size() > maxCount) {
                 imageViewHolder.checkBox.setChecked(!selectedImages.remove(imagePath));
                 Toast.makeText(context, "你最多只能选择" + maxCount + "张照片", Toast.LENGTH_SHORT).show();

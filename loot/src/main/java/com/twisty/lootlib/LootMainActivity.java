@@ -1,10 +1,7 @@
 package com.twisty.lootlib;
 
 import android.Manifest;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,7 +12,6 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.FileProvider;
 import android.support.v4.content.Loader;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -31,9 +27,8 @@ import static android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION;
 import static android.content.Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
-public class LootMainActivity extends AppCompatActivity {
+public class LootMainActivity extends LootBaseActivity {
     private static final int REQUEST_CODE_CAMERA = 0x001;
-    private BroadcastReceiver receiver;
     private RecyclerView recyclerView;
     private static final int LOAD_ALBUM = 0;
     private static final int REQUEST_PERMISSION = 0;
@@ -43,13 +38,6 @@ public class LootMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loot_main);
-        receiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                finish();
-            }
-        };
-        registerReceiver(receiver, new IntentFilter("lootLib.CloseMain"));
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -165,13 +153,17 @@ public class LootMainActivity extends AppCompatActivity {
         if (resultCode != RESULT_OK) return;
         if (requestCode == REQUEST_CODE_CAMERA) {
             sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(tmpFile)));
+            if (Loot.getInstance().isSingle()) {
+                Intent intent = new Intent(this, PreviewSingleActivity.class);
+                intent.putExtra("ImagePath", tmpFile.getPath());
+                startActivity(intent);
+            }
         }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unregisterReceiver(receiver);
     }
 
     public void cancel(View view) {

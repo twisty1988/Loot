@@ -71,7 +71,7 @@
             android:layout_height="1dp"
             android:background="?android:attr/listDivider"/>
 
-        <TextView
+        <!--<TextView
             android:id="@+id/edit"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -81,7 +81,7 @@
             android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="编辑"/>
+            android:text="编辑"/>-->
 
         <TextView
             android:id="@+id/preview"
@@ -89,7 +89,6 @@
             android:layout_height="match_parent"
             android:layout_below="@id/divider"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/edit"
             android:enabled="false"
             android:gravity="center"
             android:paddingLeft="10dp"

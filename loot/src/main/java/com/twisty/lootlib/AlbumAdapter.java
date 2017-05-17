@@ -71,7 +71,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             }
         } else {
             AlbumViewHolder albumViewHolder = (AlbumViewHolder) holder;
-            Album album = data.get(position);
+            Album album = Loot.getInstance().isHasCamera() ? data.get(position - 1) : data.get(position);
             albumViewHolder.nameView.setText(album.getAlbumName());
             albumViewHolder.imageCountView.setText(String.format(Locale.CHINA, "(%d)", album.getImageCount()));
             Glide.with(context).load(album.getLatestImagePath()).into(albumViewHolder.latestImageView);
@@ -84,7 +84,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return Loot.getInstance().isHasCamera() ? data.size() + 1 : data.size();
     }
 
     static class AlbumViewHolder extends RecyclerView.ViewHolder {

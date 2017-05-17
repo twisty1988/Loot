@@ -1,10 +1,8 @@
 package com.twisty.lootlib;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -17,7 +15,7 @@ import com.github.chrisbanes.photoview.PhotoView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PreviewActivity extends AppCompatActivity implements View.OnClickListener {
+public class PreviewActivity extends LootBaseActivity implements View.OnClickListener {
     ViewPager viewPager;
     ArrayList<String> imagePaths;
     List<String> removedImage = new ArrayList<>();
@@ -98,9 +96,7 @@ public class PreviewActivity extends AppCompatActivity implements View.OnClickLi
                 imagePaths.removeAll(removedImage);
                 onLootedCallback.onLooted(imagePaths);
             }
-            sendBroadcast(new Intent("lootLib.CloseMain"));
-            sendBroadcast(new Intent("lootLib.CloseList"));
-            finish();
+            exitApp();
         }
     }
 

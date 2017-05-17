@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.twisty.lootlib.PreviewActivity">
+    tools:context="com.twisty.lootlib.PreviewSingleActivity">
 
-
-    <com.twisty.lootlib.PhotoViewPager
-        android:id="@+id/viewPager"
+    <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/photoView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"/>
@@ -24,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:onClick="cancel"
             android:orientation="horizontal"
             android:paddingLeft="10dp"
             android:paddingRight="10dp">
@@ -40,59 +40,20 @@
                 android:text="返回"
                 android:textColor="@color/white"
                 android:textSize="14sp"/>
-
         </LinearLayout>
 
-        <FrameLayout
-            android:id="@+id/actionRight"
-            android:layout_width="?android:attr/actionBarSize"
-            android:layout_height="?android:attr/actionBarSize"
-            android:layout_alignParentRight="true">
-
-            <CheckBox
-                android:id="@+id/checkbox"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:background="@drawable/check_box_selector"
-                android:button="@null"
-                android:checked="true"
-                />
-        </FrameLayout>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:background="@color/actionBarColor"
-        android:id="@+id/bottomBar"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignParentBottom="true">
-
         <TextView
-            android:textColor="@drawable/done_btn_selector"
             android:id="@+id/done"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:layout_below="@id/divider"
-            android:layout_centerVertical="true"
-            android:enabled="false"
             android:gravity="center"
-            android:paddingLeft="10dp"
+            android:paddingLeft="15dp"
             android:paddingRight="10dp"
-            android:text="完成"/>
-
-        <TextView
-            android:id="@+id/imageCount"
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@id/done"
-            android:background="@drawable/red_circle"
-            android:gravity="center"
+            android:text="完成"
             android:textColor="@color/white"
-            android:textSize="12sp"
-            android:visibility="invisible"/>
-
+            android:textSize="14sp"
+            android:visibility="gone"/>
     </RelativeLayout>
+
 </RelativeLayout>
