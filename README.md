@@ -1,4 +1,6 @@
 # Loot
+![Loot Hoarder](art/Loot_Hoarder.png)
+
 Multilpe and Single ImageChoice Library
 
 提供多选和单选图片以及图片裁剪的功能.
