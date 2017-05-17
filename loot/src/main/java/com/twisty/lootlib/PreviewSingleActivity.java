@@ -17,6 +17,7 @@ public class PreviewSingleActivity extends LootBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preview_single);
+        View actionBar = findViewById(R.id.actionBar);
         loot = Loot.getInstance();
         String imagePath = getIntent().getStringExtra("ImagePath");
 
@@ -37,6 +38,13 @@ public class PreviewSingleActivity extends LootBaseActivity {
             });
         }
         photoView = (PhotoView) findViewById(R.id.photoView);
+        photoView.setOnPhotoTapListener((imageView, v, v1) -> {
+            if (actionBar.getVisibility() == View.GONE) {
+                actionBar.setVisibility(View.VISIBLE);
+            } else {
+                actionBar.setVisibility(View.GONE);
+            }
+        });
         Glide.with(this).load(imagePath).into(photoView);
     }
 
