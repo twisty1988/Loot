@@ -37,6 +37,7 @@ public class LootListActivity extends LootBaseActivity implements View.OnClickLi
         ((TextView) findViewById(R.id.actionTitle)).setText(albumName);
         adapter = new ImageAdapter(images);
         recyclerView.setAdapter(adapter);
+        findViewById(R.id.bottomBar).setVisibility(loot.isSingle() ? View.GONE : View.VISIBLE);
         adapter.setOnImageItemClickCallback(imagePath -> {
             Intent intent = new Intent(this, PreviewSingleActivity.class);
             intent.putExtra("ImagePath", imagePath);

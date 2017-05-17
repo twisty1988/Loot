@@ -63,7 +63,9 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:visibility="gone"
+        >
 
         <View
             android:id="@+id/divider"
@@ -127,6 +129,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_above="@id/bottomBar"
+        android:layout_alignWithParentIfMissing="true"
         android:layout_below="@id/actionBar"
         android:layout_marginLeft="1px"
         />
