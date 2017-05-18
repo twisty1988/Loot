@@ -12,7 +12,10 @@ Multilpe and Single ImageChoice Library
   |:------------------------------------:|:-------------------------------------:|:------------------------------------:|
   | ![](art/device-2017-05-17-160832.png)| ![](art/device-2017-05-17-162150.png) |                                      |
 
+`compile 'com.twisty:loot:1.0.0'`
+
 ```
+
 Loot.getInstance()
     .setSingle(false)
     .setHasCamera(true)
