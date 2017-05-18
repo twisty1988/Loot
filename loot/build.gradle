@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -34,3 +33,4 @@ dependencies {
     compile 'com.isseiaoki:simplecropview:1.1.4'
     compile 'com.github.chrisbanes:PhotoView:2.0.0'
 }
+apply from: 'jcenter.gradle'
