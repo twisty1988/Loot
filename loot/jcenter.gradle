@@ -5,7 +5,7 @@ def siteUrl = 'https://github.com/twisty1988/Loot'
 def gitUrl = 'https://github.com/twisty1988/Loot.git'
 
 group = "com.twisty" // Maven Group ID for the artifact
-version = "1.0.0"
+version = "1.0.1"
 
 install {
     repositories.mavenInstaller {

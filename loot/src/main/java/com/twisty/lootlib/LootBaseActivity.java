@@ -9,11 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 
 public class LootBaseActivity extends AppCompatActivity {
     BroadcastReceiver receiverExit;
-    public static final String RECEIVER_EXIT_ACTION = "lootLib.exitAll";
+    public String RECEIVER_EXIT_ACTION;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        RECEIVER_EXIT_ACTION = getPackageName() + "lootLib.exitAll";
         receiverExit = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
