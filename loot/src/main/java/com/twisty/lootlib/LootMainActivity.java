@@ -127,7 +127,7 @@ public class LootMainActivity extends LootBaseActivity {
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     Uri contentUri = null;
                     try {
-                        contentUri = FileProvider.getUriForFile(LootMainActivity.this, "com.twisty.lootlib", tmpFile = FileUtil.createTmpFile());
+                        contentUri = FileProvider.getUriForFile(LootMainActivity.this, getPackageName(), tmpFile = FileUtil.createTmpFile());
                     } catch (IOException e) {
                         Toast.makeText(LootMainActivity.this, "无法存储SD卡", Toast.LENGTH_SHORT).show();
                         e.printStackTrace();
