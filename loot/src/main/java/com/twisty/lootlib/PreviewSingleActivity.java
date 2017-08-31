@@ -45,7 +45,7 @@ public class PreviewSingleActivity extends LootBaseActivity {
                 actionBar.setVisibility(View.GONE);
             }
         });
-        Glide.with(this).load(imagePath).into(photoView);
+        GlideApp.with(this).load(imagePath).into(photoView);
     }
 
     @Override

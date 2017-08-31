@@ -12,8 +12,6 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,26 +53,24 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         context = parent.getContext();
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        {
-            View view = layoutInflater.inflate(R.layout.loot_image_item, parent, false);
-            GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view.getLayoutParams();
-            Resources resources = context.getResources();
-            DisplayMetrics dm = resources.getDisplayMetrics();
-            float itemWidth = dm.widthPixels / Loot.getInstance().countPerRow;
-            layoutParams.width = (int) itemWidth - 2;
-            layoutParams.height = (int) itemWidth - 2;
-            view.setLayoutParams(layoutParams);
-            if (loot.isSingle()) {
-                view.findViewById(R.id.checkbox).setVisibility(View.GONE);
-            }
-            return new ImageViewHolder(view);
+        View view = layoutInflater.inflate(R.layout.loot_image_item, parent, false);
+        GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view.getLayoutParams();
+        Resources resources = context.getResources();
+        DisplayMetrics dm = resources.getDisplayMetrics();
+        float itemWidth = dm.widthPixels / Loot.getInstance().countPerRow;
+        layoutParams.width = (int) itemWidth - 2;
+        layoutParams.height = (int) itemWidth - 2;
+        view.setLayoutParams(layoutParams);
+        if (loot.isSingle()) {
+            view.findViewById(R.id.checkbox).setVisibility(View.GONE);
         }
+        return new ImageViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ImageViewHolder imageViewHolder, int position) {
         String imagePath = data.get(position);
-        Glide.with(context).load(imagePath).into(imageViewHolder.imageView);
+        GlideApp.with(context).load(imagePath).into(imageViewHolder.imageView);
         if (onImageItemClickCallback != null) {
             imageViewHolder.itemView.setOnClickListener(v -> onImageItemClickCallback.onAction(imagePath));
         }

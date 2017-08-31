@@ -9,7 +9,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
 
 import java.util.ArrayList;
@@ -113,7 +112,7 @@ public class PreviewActivity extends LootBaseActivity implements View.OnClickLis
                     bottomBar.setVisibility(View.VISIBLE);
                 }
             });
-            Glide.with(PreviewActivity.this).load(imagePaths.get(position)).into(photoView);
+            GlideApp.with(PreviewActivity.this).load(imagePaths.get(position)).into(photoView);
             container.addView(photoView);
             return photoView;
         }

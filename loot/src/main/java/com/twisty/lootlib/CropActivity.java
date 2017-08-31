@@ -69,7 +69,7 @@ public class CropActivity extends LootBaseActivity {
             @Override
             public void onSuccess(Uri outputUri) {
                 if (pd != null && pd.isShowing()) pd.dismiss();
-                Toast.makeText(CropActivity.this, outputUri.toString(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(CropActivity.this, outputUri.toString(), Toast.LENGTH_LONG).show();
                 ArrayList<String> data = new ArrayList<>();
                 data.add(outputUri.getPath());
                 Loot.getInstance().getOnLootedCallback().onLooted(data);

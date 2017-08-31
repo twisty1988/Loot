@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
 import java.util.List;
 import java.util.Locale;
 
@@ -74,7 +72,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             Album album = Loot.getInstance().isHasCamera() ? data.get(position - 1) : data.get(position);
             albumViewHolder.nameView.setText(album.getAlbumName());
             albumViewHolder.imageCountView.setText(String.format(Locale.CHINA, "(%d)", album.getImageCount()));
-            Glide.with(context).load(album.getLatestImagePath()).into(albumViewHolder.latestImageView);
+            GlideApp.with(context).load(album.getLatestImagePath()).into(albumViewHolder.latestImageView);
             if (actionCallback != null) {
                 holder.itemView.setOnClickListener(v -> actionCallback.onAction(album));
             }
